@@ -1,4 +1,4 @@
-# DFW Prime Remodeling — Data-Driven Local SEO Website
+# My Dream Home Remodeling — Data-Driven Local SEO Website
 
 A production-ready local remodeling company website built with a **data-driven architecture**: the entire site — 158 statically generated pages, including 120 service×city landing pages — is generated from a handful of structured data files. Adding a new service or city requires editing **one data file**, nothing else.
 
@@ -54,7 +54,12 @@ Add one object to `data/cities.ts` (or `data/services.ts`). That's it. The build
 
 ## Before Going Live
 
-1. Replace placeholder SVGs in `public/images/` with real project photos
-2. Update `data/company.ts` with the real business name, phone, address, and URL
-3. Wire `components/ContactForm.tsx` to a form backend (API route, Formspree, Resend, …)
-4. Set the production domain in `data/company.ts` (`url`) — canonicals, OG tags, sitemap, and schema all derive from it
+Business name, phone, address, and domain are already set in `data/company.ts`. Still remaining:
+
+1. Confirm the TODOs in `data/company.ts`: email address, legal entity name, exact geo coordinates, founded year
+2. Replace the placeholder stats (`stats`, founded year, "2,400+ projects", "4.9★" claims) with real numbers — they appear on the home, about, and hero sections
+3. Replace the illustrative testimonials in `data/testimonials.ts` with real customer reviews
+4. Replace placeholder SVGs in `public/images/` with real project photos
+5. Wire `components/ContactForm.tsx` to a form backend (API route, Formspree, Resend, …)
+6. Add real social profile URLs to `company.social` (feeds schema.org `sameAs`)
+7. Once real review data exists, optionally add an `aggregateRating` back to `localBusinessSchema()` in `lib/seo.ts` — it was intentionally left out to avoid fabricated-rating penalties

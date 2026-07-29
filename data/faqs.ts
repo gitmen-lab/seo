@@ -1,3 +1,5 @@
+import { company } from "@/data/company";
+
 export interface FAQ {
   question: string;
   answer: string;
@@ -8,7 +10,7 @@ export const generalFaqs: FAQ[] = [
   {
     question: "Are you licensed and insured?",
     answer:
-      "Yes. DFW Prime Remodeling is fully licensed and insured in the State of Texas, and all plumbing, electrical, and gas work is performed by licensed trade professionals and inspected to local code.",
+      `Yes. ${company.name} is fully licensed and insured in the State of Texas, and all plumbing, electrical, and gas work is performed by licensed trade professionals and inspected to local code.`,
   },
   {
     question: "Do you charge for estimates?",

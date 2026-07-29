@@ -33,7 +33,7 @@ export function Navbar() {
             <Hammer className="h-5 w-5" aria-hidden="true" />
           </span>
           <span className="hidden sm:inline">{company.name}</span>
-          <span className="sm:hidden">DFW Prime</span>
+          <span className="sm:hidden">{company.shortName}</span>
         </Link>
 
         {/* Desktop nav */}

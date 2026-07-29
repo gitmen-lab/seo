@@ -87,7 +87,9 @@ export function organizationSchema(): JsonLd {
     telephone: company.phone,
     email: company.email,
     foundingDate: String(company.foundedYear),
-    sameAs: company.social.map((s) => s.url),
+    ...(company.social.length > 0 && {
+      sameAs: company.social.map((s) => s.url),
+    }),
     address: {
       "@type": "PostalAddress",
       streetAddress: company.address.street,
@@ -118,7 +120,11 @@ export function localBusinessSchema(): JsonLd {
       postalCode: company.address.zip,
       addressCountry: "US",
     },
-    geo: { "@type": "GeoCoordinates", latitude: 32.7555, longitude: -97.3308 },
+    geo: {
+      "@type": "GeoCoordinates",
+      latitude: company.coordinates.lat,
+      longitude: company.coordinates.lng,
+    },
     openingHoursSpecification: [
       {
         "@type": "OpeningHoursSpecification",
@@ -133,11 +139,9 @@ export function localBusinessSchema(): JsonLd {
         closes: "16:00",
       },
     ],
-    aggregateRating: {
-      "@type": "AggregateRating",
-      ratingValue: "4.9",
-      reviewCount: "480",
-    },
+    // NOTE: add an aggregateRating block here only with real review data
+    // (matching your Google Business Profile) — fabricated ratings in
+    // structured data risk manual penalties.
   };
 }
 
